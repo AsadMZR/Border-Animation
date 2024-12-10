@@ -1,0 +1,113 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: #000000;
+    align-content: center;
+}
+
+.box {
+margin: 0 auto;
+padding: 2em;
+width: 500px;
+height: 500px;
+background: #1c1f2b;
+text-align: center;
+border-radius: 10px;
+position: relative;
+margin-top:150px;
+margin-left: 250px;
+}
+
+.box2 {
+margin: 0 auto;
+padding: 2em;
+width: 500px;
+height: 500px;
+background: #1c1f2b;
+text-align: center;
+border-radius: 10px;
+position: relative;
+bottom:555px;
+margin-right: 250px;
+}
+
+@property --angle{
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+
+.box::after, .box::before {
+content: '';
+position: absolute;
+height: 100%;
+width: 100%;
+background-image: conic-gradient(from var(--angle), #bd5252, #3bb371, #3b7db3, #b33ba9, #bd5252);
+top: 50%;
+left: 50%;
+translate: -50% -50%;
+z-index: -1;
+padding: 3px;
+border-radius: 10px;
+animation: 3s spin linear infinite; 
+}
+
+.box::before{
+    filter: blur(10.5rem);
+    opacity: 0.5;
+}
+
+
+.box2::after, .box2::before {
+content: '';
+position: absolute;
+height: 100%;
+width: 100%;
+background-image: conic-gradient(from var(--angle), transparent, red, white);
+top: 50%;
+left: 50%;
+translate: -50% -50%;
+z-index: -1;
+padding: 3px;
+border-radius: 10px;
+animation: 3s spin linear infinite; 
+}
+
+.box2::before{
+    filter: blur(10.5rem);
+    opacity: 0.5;
+}
+
+@keyframes spin{
+    from{
+        --angle: 0deg;
+    }
+    to{
+        --angle: 360deg;
+    }
+}
+
+
+
+
+
+
+
+#title{
+    color: #f0f0f0;
+    padding: auto;
+}
+
+#text {
+    color: #f0f0f0;
+    height: 250px;
+    position: relative;
+    width: 500px;
+    display: inline-block; /* or 'block' */
+    top: 50px;;
+    text-shadow: 50px ;
+}
